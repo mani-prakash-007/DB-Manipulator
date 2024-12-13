@@ -6,11 +6,9 @@ export const addDataToCollectionService = async (
   collectionData
 ) => {
   try {
-    console.log("Start of addData service");
     const collectionSchemaDetails = await getCollectionByNameService(
       collectionName
     );
-    console.log("Collection Schema : ", collectionSchemaDetails);
     if (collectionSchemaDetails.statusCode != 200) {
       return {
         statusCode: collectionSchemaDetails.statusCode,
@@ -22,8 +20,6 @@ export const addDataToCollectionService = async (
       collectionSchemaDetails.details.collectionName,
       collectionSchemaDetails.details.collectionSchema
     );
-    console.log("Collection Model : ", Collection);
-    console.log("End of addData service");
 
     const newData = await Collection.create(collectionData);
     return {

@@ -8,7 +8,6 @@ export const addDataToCollectionController = async (req, res) => {
     collectionName,
     collectionData
   );
-  console.log("After service - Contorller turn's");
   res.status(response.statusCode).json({
     status: response.status,
     message: response.details,

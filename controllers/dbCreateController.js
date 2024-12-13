@@ -2,7 +2,7 @@ import {
   createNewCollectionService,
   getAllCollectionService,
   getCollectionByNameService,
-} from "../services/db_services.js";
+} from "../services/dbCreateServices.js";
 
 export const createNewCollectionController = async (req, res) => {
   const { collectionName, collectionSchema } = req.body;
@@ -11,7 +11,7 @@ export const createNewCollectionController = async (req, res) => {
   } else if (!collectionSchema) {
     res.status(400).json({ message: `"collectionSchema" is required.` });
   } else {
-    response = await createNewCollectionService(
+    const response = await createNewCollectionService(
       collectionName,
       collectionSchema
     );

@@ -1,4 +1,4 @@
-import Collection from ".././models/db_schema.js";
+import Collection from ".././models/dbSchema.js";
 
 export const createNewCollectionService = async (
   collectionName,
@@ -70,7 +70,7 @@ export const getAllCollectionService = async () => {
 export const getCollectionByNameService = async (collectionName) => {
   try {
     const collection = await Collection.findOne({
-      collectionName: { $regex: collectionName, $options: "i" },
+      collectionName: { $regex: `^${collectionName}$`, $options: "i" },
     });
     return {
       statusCode: 200,

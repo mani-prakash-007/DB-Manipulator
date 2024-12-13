@@ -3,7 +3,7 @@ import {
   createNewCollectionController,
   getAllCollectionController,
   getCollectionByNameController,
-} from "../controllers/db_controller.js";
+} from "../controllers/dbCreateController.js";
 
 export const createSchemaRouter = express.Router();
 

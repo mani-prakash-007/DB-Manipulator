@@ -1,6 +1,7 @@
 import express from "express";
 import { connectDB } from "./db.js";
-import { createSchemaRouter } from "./routes/db_route.js";
+import { createSchemaRouter } from "./routes/dbCreateRoute.js";
+import { addDataToCollectionRoute } from "./routes/dbAddDataRoute.js";
 
 const app = express();
 const PORT = 3000;
@@ -13,8 +14,10 @@ app.use(express.urlencoded({ extended: false }));
 connectDB();
 
 //Main Routes
-app.use("/api/db", createSchemaRouter);
+app.use("/api/db/create", createSchemaRouter);
+app.use("/api/db/add", addDataToCollectionRoute);
 
+//Server is listening
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
